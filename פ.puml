@@ -1,0 +1,27 @@
+@startuml
+class com.example.myproject.post {
+- String postimage
+- String postinfo
+- String userimage
+- String username
+- String email
+- long timestamp
++ String getEmail()
++ long getTimestamp()
++ void setTimestamp(long)
++ void setEmail(String)
++ String getPostimage()
++ void setPostimage(String)
++ String getPostinfo()
++ void setPostinfo(String)
++ String getUserimage()
++ void setUserimage(String)
++ String getUsername()
++ void setUsername(String)
+}
+
+
+
+
+java.io.Serializable <|.. com.example.myproject.post
+@enduml

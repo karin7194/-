@@ -1,0 +1,25 @@
+@startuml
+class com.example.myproject.UsersProfile {
+~ TextView username
+~ ImageView profilepic
+~ RecyclerView recyclerView
+~ String userpicture
+~ List<post> posts
+~ PostProfileAdapter adapter
+~ DatabaseReference databaseRef
+~ ImageButton chat
+~ Intent in
+~ StorageReference postImageRef
+# void onCreate(Bundle)
++ void onClick(View)
+- void getbioFromFirebase(String)
+- void loadPosts()
+- void fetchPostImage(post,String)
+}
+
+
+
+
+com.example.myproject.OnClickListener <|.. com.example.myproject.UsersProfile
+androidx.appcompat.app.AppCompatActivity <|-- com.example.myproject.UsersProfile
+@enduml

@@ -1,0 +1,24 @@
+@startuml
+class com.example.myproject.Chat {
+- String currentuseremail
+- String postowneremail
+- String message
+- long timestamp
+- String currentprofile
+- String postprofile
++ String getCurrentprofile()
++ void setCurrentprofile(String)
++ String getPostprofile()
++ void setPostprofile(String)
++ String getCurrentuseremail()
++ void setCurrentuseremail(String)
++ String getPostowneremail()
++ void setPostowneremail(String)
++ String getMessage()
++ void setMessage(String)
++ long getTimestamp()
++ void setTimestamp(long)
+}
+
+
+@enduml

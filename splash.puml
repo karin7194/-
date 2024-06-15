@@ -1,0 +1,12 @@
+@startuml
+class com.example.myproject.Splash {
+- ImageView iv
+- TextView tv
+# void onCreate(Bundle)
+}
+
+
+
+
+androidx.appcompat.app.AppCompatActivity <|-- com.example.myproject.Splash
+@enduml

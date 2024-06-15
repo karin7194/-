@@ -1,0 +1,24 @@
+@startuml
+class com.example.myproject.Chat_activity {
+~ EditText message
+~ RecyclerView recyclerView
+~ MessageAdapter adapter
+~ ImageButton send
+~ ImageView profilepic
+~ String postowneremail
+~ Intent in
+~ FirebaseDatabase firebaseDatabase
+~ DatabaseReference myref
+~ SharedPreferences sp
+~ List<Chat> chatList
+# void onCreate(Bundle)
+- void fetchProfilePicture(String,ImageView)
+- void loadMessagesFromFirebase()
+- void sendMessageToFirebase()
+}
+
+
+
+
+androidx.appcompat.app.AppCompatActivity <|-- com.example.myproject.Chat_activity
+@enduml

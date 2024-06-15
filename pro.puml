@@ -1,0 +1,24 @@
+@startuml
+class com.example.myproject.ProfileFragment {
+- TextView username
+- ImageView profilepic
+- RecyclerView recyclerView
+- String email
+- SharedPreferences sp
+- List<post> posts
+- PostProfileAdapter adapter
+- DatabaseReference databaseRef
+- StorageReference postImageRef
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void loadPosts()
+- void fetchPostImage(post,String)
+- void getbioFromFirebase(String)
+- void getUsernameFromFirebase(String)
+- void fetchProfilePicture(String)
+}
+
+
+
+
+androidx.fragment.app.Fragment <|-- com.example.myproject.ProfileFragment
+@enduml

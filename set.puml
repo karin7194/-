@@ -1,0 +1,14 @@
+@startuml
+class com.example.myproject.SettingsFragment {
+- Button b
+~ SharedPreferences sp
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onClick(View)
+}
+
+
+
+
+com.example.myproject.OnClickListener <|.. com.example.myproject.SettingsFragment
+androidx.fragment.app.Fragment <|-- com.example.myproject.SettingsFragment
+@enduml

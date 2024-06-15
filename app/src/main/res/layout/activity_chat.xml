@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Chat_activity">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="656dp"
+            android:layout_above="@id/imageView7"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="12dp"
+            android:padding="8dp" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageView7"
+            android:layout_width="63dp"
+            android:layout_height="57dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginEnd="334dp"
+
+            app:srcCompat="@drawable/whitephoto" />
+
+        <EditText
+            android:id="@+id/message_input"
+            android:layout_width="288dp"
+            android:layout_height="55dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="62dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/edittextshape"
+            android:hint="Message..."
+            android:padding="8dp" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="58dp"
+            android:layout_height="54dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="-1dp"
+            android:layout_marginBottom="4dp"
+            app:srcCompat="@drawable/baseline_send_24" />
+
+
+</RelativeLayout>

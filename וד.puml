@@ -1,0 +1,25 @@
+@startuml
+class com.example.myproject.User {
+- String name
+- String pass
+- String email
+- String bio
+- String profilepic
++ String getProfilepic()
++ void setProfilepic(String)
++ String getName()
++ void setName(String)
++ String getPass()
++ void setPass(String)
++ String getEmail()
++ void setEmail(String)
++ String getBio()
++ void setBio(String)
++ String toString()
+}
+
+
+
+
+java.io.Serializable <|.. com.example.myproject.User
+@enduml

@@ -1,0 +1,14 @@
+@startuml
+class com.example.myproject.NetworkChangeReceiver {
+~ AlertDialog.Builder adb
+~ AlertDialog ad
++ void onReceive(Context,Intent)
+- boolean isConnectedToWifi(Context)
+- void showDialogAndExit(Context)
+}
+
+
+
+
+android.content.BroadcastReceiver <|-- com.example.myproject.NetworkChangeReceiver
+@enduml

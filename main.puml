@@ -1,0 +1,16 @@
+@startuml
+class com.example.myproject.MainPage {
+~ BottomNavigationView bottomNavigationView
+~ BroadcastReceiver broadcastReceiver
+# void onCreate(Bundle)
++ void registerNetworkBroadcastReceiver()
++ void unregisterNetwork()
++ void onDestroy()
+- void replaceFragment(Fragment)
+}
+
+
+
+
+androidx.appcompat.app.AppCompatActivity <|-- com.example.myproject.MainPage
+@enduml

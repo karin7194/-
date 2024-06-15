@@ -1,0 +1,40 @@
+@startuml
+class com.example.myproject.MessageAdapter {
+- {static} int VIEW_TYPE_LEFT
+- {static} int VIEW_TYPE_RIGHT
+~ String postemail
+~ List<Chat> chatList
+~ String currentUserId
++ RecyclerView.ViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(RecyclerView.ViewHolder,int)
++ int getItemCount()
++ int getItemViewType(int)
+}
+
+
+class com.example.myproject.MessageAdapter$LeftMessageViewHolder {
+~ ImageView profilePictureImageView3
+~ TextView messageTextView
+~ TextView timestampTextView
++ void bind(Chat)
+- String formatTimestamp(long)
+}
+
+
+class com.example.myproject.MessageAdapter$RightMessageViewHolder {
+~ ImageView profilePictureImageView
+~ TextView messageTextView
+~ TextView timestampTextView
++ void bind(Chat)
+- String formatTimestamp(long)
+}
+
+
+
+
+com.example.myproject.Adapter <|-- com.example.myproject.MessageAdapter
+com.example.myproject.MessageAdapter +.. com.example.myproject.MessageAdapter$LeftMessageViewHolder
+com.example.myproject.ViewHolder <|-- com.example.myproject.MessageAdapter$LeftMessageViewHolder
+com.example.myproject.MessageAdapter +.. com.example.myproject.MessageAdapter$RightMessageViewHolder
+com.example.myproject.ViewHolder <|-- com.example.myproject.MessageAdapter$RightMessageViewHolder
+@enduml

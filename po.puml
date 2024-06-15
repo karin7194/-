@@ -1,0 +1,23 @@
+@startuml
+class com.example.myproject.PostProfileAdapter {
+- List<post> posts
+~ String email
++ PostViewHolder2 onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(PostViewHolder2,int)
+- String formatTimestamp(long)
++ int getItemCount()
+}
+
+
+class com.example.myproject.PostProfileAdapter$PostViewHolder2 {
+~ ImageView postimage
+~ TextView postinfo
+~ View view
+}
+
+
+
+com.example.myproject.Adapter <|-- com.example.myproject.PostProfileAdapter
+com.example.myproject.PostProfileAdapter +.. com.example.myproject.PostProfileAdapter$PostViewHolder2
+com.example.myproject.ViewHolder <|-- com.example.myproject.PostProfileAdapter$PostViewHolder2
+@enduml

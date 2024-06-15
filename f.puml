@@ -1,0 +1,39 @@
+@startuml
+class com.example.myproject.ChatFragment {
+- RecyclerView recyclerView
+- List<User> users
+- List<Chat> chats
+- UserAdapter adapter
+- DatabaseReference chatsRef
+- String currentuseremail
+- TextView tv
+- StorageReference profilePictureRef
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void loadUsers()
+- void fetchLastMessage(String,String,Chat)
+- void fetchProfilePicture(User,String)
+}
+
+
+class com.example.myproject.ChatFragment$UserAdapter {
+- List<User> users
+- List<Chat> chats
++ UserViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(UserViewHolder,int)
++ int getItemCount()
+}
+
+
+class com.example.myproject.ChatFragment$UserAdapter$UserViewHolder {
+~ TextView usernameTextView
+~ ImageView profilePicImageView
+}
+
+
+
+androidx.fragment.app.Fragment <|-- com.example.myproject.ChatFragment
+com.example.myproject.ChatFragment +.. com.example.myproject.ChatFragment$UserAdapter
+com.example.myproject.Adapter <|-- com.example.myproject.ChatFragment$UserAdapter
+com.example.myproject.ChatFragment$UserAdapter +.. com.example.myproject.ChatFragment$UserAdapter$UserViewHolder
+com.example.myproject.ViewHolder <|-- com.example.myproject.ChatFragment$UserAdapter$UserViewHolder
+@enduml

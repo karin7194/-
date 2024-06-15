@@ -1,0 +1,25 @@
+@startuml
+class com.example.myproject.Login {
+~ Button b
+~ EditText email
+~ SharedPreferences sp
+~ CheckBox box
+~ FirebaseAuth Auth
+~ FirebaseDatabase firebaseDatabase
+~ DatabaseReference myRef
+~ User u
+~ BroadcastReceiver broadcastReceiver
+# void onCreate(Bundle)
++ void registerNetworkBroadcastReceiver()
++ void unregisterNetwork()
++ void onDestroy()
++ void onClick(View)
+- void resetPassword()
+}
+
+
+
+
+com.example.myproject.OnClickListener <|.. com.example.myproject.Login
+androidx.appcompat.app.AppCompatActivity <|-- com.example.myproject.Login
+@enduml

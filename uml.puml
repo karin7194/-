@@ -1,0 +1,431 @@
+@startuml
+class com.example.myproject.Registration {
+~ Button b
+~ EditText et1
+~ CheckBox box
+~ FirebaseAuth firebaseAuth
+~ FirebaseDatabase firebaseDatabase
+~ DatabaseReference myref
+~ ActivityResultLauncher activityResultLauncher
+- {static} int MY_CAMERA_REQUEST_CODE
+- {static} int FROM_GALLERY
+- {static} int FROM_CAMERA
+~ byte[] bytes
+~ AlertDialog.Builder adb
+~ AlertDialog ad
+~ ImageView profileImage
+~ Uri uri
+~ StorageReference mStorageRef
+~ int flag
+~ String picName
+~ int j
+~ boolean f
+~ SharedPreferences sp
+# void onCreate(Bundle)
++ void insertimage()
+- String getFileExtension(Uri)
++ void onRequestPermissionsResult(int,String[],int[])
++ void insert()
++ boolean isValidate()
++ void onClick(View)
+}
+
+
+class com.example.myproject.Makepost {
+~ Button b
+~ ImageView postpic
+~ TextView username
+~ EditText postinfo
+~ ActivityResultLauncher activityResultLauncher
+- {static} int MY_CAMERA_REQUEST_CODE
+- {static} int FROM_GALLERY
+- {static} int FROM_CAMERA
+~ byte[] bytes
+~ Uri uri
+~ AlertDialog.Builder adb
+~ AlertDialog ad
+~ FirebaseDatabase firebaseUser
+~ DatabaseReference db
+~ String picName
+~ int flag
+~ SharedPreferences sp
+~ boolean f
+~ StorageReference storageReference
+# void onCreate(Bundle)
+- void fetchProfilePicture(String)
+- String getFileExtension(Uri)
++ void onRequestPermissionsResult(int,String[],int[])
++ void onClick(View)
+- void getUsernameFromFirebase(String)
+- void addPostToFirebase()
+}
+
+
+class com.example.myproject.HomeFragment {
+- Button b
+- SharedPreferences sp
+- RecyclerView recyclerView
+- List<post> posts
+- PostAdapter adapter
+- DatabaseReference databaseRef
+- StorageReference postImageRef
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void loadPosts()
+- void fetchPostImage(post,String)
+- void fetchProfilePicture(post,String)
++ void onClick(View)
+}
+
+
+class com.example.myproject.HomeFragment$PostAdapter {
+- List<post> posts
++ PostViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(PostViewHolder,int)
+- String formatTimestamp(long)
++ int getItemCount()
+}
+
+
+class com.example.myproject.HomeFragment$PostViewHolder {
+~ ImageView postimage
+~ TextView username
+~ View view
+~ Button b
+}
+
+class com.example.myproject.ChatFragment {
+- RecyclerView recyclerView
+- List<User> users
+- List<Chat> chats
+- UserAdapter adapter
+- DatabaseReference chatsRef
+- String currentuseremail
+- TextView tv
+- StorageReference profilePictureRef
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void loadUsers()
+- void fetchLastMessage(String,String,Chat)
+- void fetchProfilePicture(User,String)
+}
+
+
+class com.example.myproject.ChatFragment$UserAdapter {
+- List<User> users
+- List<Chat> chats
++ UserViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(UserViewHolder,int)
++ int getItemCount()
+}
+
+
+class com.example.myproject.ChatFragment$UserAdapter$UserViewHolder {
+~ TextView usernameTextView
+~ ImageView profilePicImageView
+}
+
+class com.example.myproject.SettingsFragment {
+- Button b
+~ SharedPreferences sp
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onClick(View)
+}
+
+
+class com.example.myproject.UsersProfile {
+~ TextView username
+~ ImageView profilepic
+~ RecyclerView recyclerView
+~ String userpicture
+~ List<post> posts
+~ PostProfileAdapter adapter
+~ DatabaseReference databaseRef
+~ ImageButton chat
+~ Intent in
+~ StorageReference postImageRef
+# void onCreate(Bundle)
++ void onClick(View)
+- void getbioFromFirebase(String)
+- void loadPosts()
+- void fetchPostImage(post,String)
+}
+
+
+class com.example.myproject.ProfileFragment {
+- TextView username
+- ImageView profilepic
+- RecyclerView recyclerView
+- String email
+- SharedPreferences sp
+- List<post> posts
+- PostProfileAdapter adapter
+- DatabaseReference databaseRef
+- StorageReference postImageRef
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void loadPosts()
+- void fetchPostImage(post,String)
+- void getbioFromFirebase(String)
+- void getUsernameFromFirebase(String)
+- void fetchProfilePicture(String)
+}
+
+
+class com.example.myproject.ExampleInstrumentedTest {
++ void useAppContext()
+}
+
+class com.example.myproject.SearchFragment {
+- RecyclerView recyclerView
+- List<User> users
+- UserAdapter adapter
+- DatabaseReference usersRef
+- SearchView searchView
+- SharedPreferences sp
+- StorageReference profilePictureRef
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void loadUsers()
++ boolean onQueryTextChange(String)
++ boolean onQueryTextSubmit(String)
+- void filter(String)
+- void fetchProfilePicture(User,String)
+}
+
+
+class com.example.myproject.SearchFragment$UserAdapter {
+- List<User> users
++ UserViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(UserViewHolder,int)
++ int getItemCount()
++ void setData(List<User>)
+}
+
+
+class com.example.myproject.SearchFragment$UserViewHolder {
+~ TextView usernameTextView
+~ ImageView profilePicImageView
+}
+
+class com.example.myproject.post {
+- String postimage
+- String postinfo
+- String userimage
+- String username
+- String email
+- long timestamp
++ String getEmail()
++ long getTimestamp()
++ void setTimestamp(long)
++ void setEmail(String)
++ String getPostimage()
++ void setPostimage(String)
++ String getPostinfo()
++ void setPostinfo(String)
++ String getUserimage()
++ void setUserimage(String)
++ String getUsername()
++ void setUsername(String)
+}
+
+
+class com.example.myproject.MainPage {
+~ BottomNavigationView bottomNavigationView
+~ BroadcastReceiver broadcastReceiver
+# void onCreate(Bundle)
++ void registerNetworkBroadcastReceiver()
++ void unregisterNetwork()
++ void onDestroy()
+- void replaceFragment(Fragment)
+}
+
+
+class com.example.myproject.PostProfileAdapter {
+- List<post> posts
+~ String email
++ PostViewHolder2 onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(PostViewHolder2,int)
+- String formatTimestamp(long)
++ int getItemCount()
+}
+
+
+class com.example.myproject.PostProfileAdapter$PostViewHolder2 {
+~ ImageView postimage
+~ TextView postinfo
+~ View view
+}
+
+class com.example.myproject.Login {
+~ Button b
+~ EditText email
+~ SharedPreferences sp
+~ CheckBox box
+~ FirebaseAuth Auth
+~ FirebaseDatabase firebaseDatabase
+~ DatabaseReference myRef
+~ User u
+~ BroadcastReceiver broadcastReceiver
+# void onCreate(Bundle)
++ void registerNetworkBroadcastReceiver()
++ void unregisterNetwork()
++ void onDestroy()
++ void onClick(View)
+- void resetPassword()
+}
+
+
+class com.example.myproject.NetworkChangeReceiver {
+~ AlertDialog.Builder adb
+~ AlertDialog ad
++ void onReceive(Context,Intent)
+- boolean isConnectedToWifi(Context)
+- void showDialogAndExit(Context)
+}
+
+
+class com.example.myproject.User {
+- String name
+- String pass
+- String email
+- String bio
+- String profilepic
++ String getProfilepic()
++ void setProfilepic(String)
++ String getName()
++ void setName(String)
++ String getPass()
++ void setPass(String)
++ String getEmail()
++ void setEmail(String)
++ String getBio()
++ void setBio(String)
++ String toString()
+}
+
+
+class com.example.myproject.ExampleUnitTest {
++ void addition_isCorrect()
+}
+
+class com.example.myproject.Chat_activity {
+~ EditText message
+~ RecyclerView recyclerView
+~ MessageAdapter adapter
+~ ImageButton send
+~ ImageView profilepic
+~ String postowneremail
+~ Intent in
+~ FirebaseDatabase firebaseDatabase
+~ DatabaseReference myref
+~ SharedPreferences sp
+~ List<Chat> chatList
+# void onCreate(Bundle)
+- void fetchProfilePicture(String,ImageView)
+- void loadMessagesFromFirebase()
+- void sendMessageToFirebase()
+}
+
+
+class com.example.myproject.Splash {
+- ImageView iv
+- TextView tv
+# void onCreate(Bundle)
+}
+
+
+class com.example.myproject.Chat {
+- String currentuseremail
+- String postowneremail
+- String message
+- long timestamp
+- String currentprofile
+- String postprofile
++ String getCurrentprofile()
++ void setCurrentprofile(String)
++ String getPostprofile()
++ void setPostprofile(String)
++ String getCurrentuseremail()
++ void setCurrentuseremail(String)
++ String getPostowneremail()
++ void setPostowneremail(String)
++ String getMessage()
++ void setMessage(String)
++ long getTimestamp()
++ void setTimestamp(long)
+}
+
+
+class com.example.myproject.MessageAdapter {
+- {static} int VIEW_TYPE_LEFT
+- {static} int VIEW_TYPE_RIGHT
+~ String postemail
+~ List<Chat> chatList
+~ String currentUserId
++ RecyclerView.ViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(RecyclerView.ViewHolder,int)
++ int getItemCount()
++ int getItemViewType(int)
+}
+
+
+class com.example.myproject.MessageAdapter$LeftMessageViewHolder {
+~ ImageView profilePictureImageView3
+~ TextView messageTextView
+~ TextView timestampTextView
++ void bind(Chat)
+- String formatTimestamp(long)
+}
+
+
+class com.example.myproject.MessageAdapter$RightMessageViewHolder {
+~ ImageView profilePictureImageView
+~ TextView messageTextView
+~ TextView timestampTextView
++ void bind(Chat)
+- String formatTimestamp(long)
+}
+
+
+
+
+com.example.myproject.OnClickListener <|.. com.example.myproject.Registration
+androidx.appcompat.app.AppCompatActivity <|-- com.example.myproject.Registration
+com.example.myproject.OnClickListener <|.. com.example.myproject.Makepost
+androidx.appcompat.app.AppCompatActivity <|-- com.example.myproject.Makepost
+com.example.myproject.OnClickListener <|.. com.example.myproject.HomeFragment
+androidx.fragment.app.Fragment <|-- com.example.myproject.HomeFragment
+com.example.myproject.HomeFragment +.. com.example.myproject.HomeFragment$PostAdapter
+com.example.myproject.Adapter <|-- com.example.myproject.HomeFragment$PostAdapter
+com.example.myproject.HomeFragment +.. com.example.myproject.HomeFragment$PostViewHolder
+com.example.myproject.ViewHolder <|-- com.example.myproject.HomeFragment$PostViewHolder
+androidx.fragment.app.Fragment <|-- com.example.myproject.ChatFragment
+com.example.myproject.ChatFragment +.. com.example.myproject.ChatFragment$UserAdapter
+com.example.myproject.Adapter <|-- com.example.myproject.ChatFragment$UserAdapter
+com.example.myproject.ChatFragment$UserAdapter +.. com.example.myproject.ChatFragment$UserAdapter$UserViewHolder
+com.example.myproject.ViewHolder <|-- com.example.myproject.ChatFragment$UserAdapter$UserViewHolder
+com.example.myproject.OnClickListener <|.. com.example.myproject.SettingsFragment
+androidx.fragment.app.Fragment <|-- com.example.myproject.SettingsFragment
+com.example.myproject.OnClickListener <|.. com.example.myproject.UsersProfile
+androidx.appcompat.app.AppCompatActivity <|-- com.example.myproject.UsersProfile
+androidx.fragment.app.Fragment <|-- com.example.myproject.ProfileFragment
+com.example.myproject.OnQueryTextListener <|.. com.example.myproject.SearchFragment
+androidx.fragment.app.Fragment <|-- com.example.myproject.SearchFragment
+com.example.myproject.SearchFragment +.. com.example.myproject.SearchFragment$UserAdapter
+com.example.myproject.Adapter <|-- com.example.myproject.SearchFragment$UserAdapter
+com.example.myproject.SearchFragment +.. com.example.myproject.SearchFragment$UserViewHolder
+com.example.myproject.ViewHolder <|-- com.example.myproject.SearchFragment$UserViewHolder
+java.io.Serializable <|.. com.example.myproject.post
+androidx.appcompat.app.AppCompatActivity <|-- com.example.myproject.MainPage
+com.example.myproject.Adapter <|-- com.example.myproject.PostProfileAdapter
+com.example.myproject.PostProfileAdapter +.. com.example.myproject.PostProfileAdapter$PostViewHolder2
+com.example.myproject.ViewHolder <|-- com.example.myproject.PostProfileAdapter$PostViewHolder2
+com.example.myproject.OnClickListener <|.. com.example.myproject.Login
+androidx.appcompat.app.AppCompatActivity <|-- com.example.myproject.Login
+android.content.BroadcastReceiver <|-- com.example.myproject.NetworkChangeReceiver
+java.io.Serializable <|.. com.example.myproject.User
+androidx.appcompat.app.AppCompatActivity <|-- com.example.myproject.Chat_activity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.myproject.Splash
+com.example.myproject.Adapter <|-- com.example.myproject.MessageAdapter
+com.example.myproject.MessageAdapter +.. com.example.myproject.MessageAdapter$LeftMessageViewHolder
+com.example.myproject.ViewHolder <|-- com.example.myproject.MessageAdapter$LeftMessageViewHolder
+com.example.myproject.MessageAdapter +.. com.example.myproject.MessageAdapter$RightMessageViewHolder
+com.example.myproject.ViewHolder <|-- com.example.myproject.MessageAdapter$RightMessageViewHolder
+@enduml

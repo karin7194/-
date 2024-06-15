@@ -1,0 +1,36 @@
+@startuml
+class com.example.myproject.Makepost {
+~ Button b
+~ ImageView postpic
+~ TextView username
+~ EditText postinfo
+~ ActivityResultLauncher activityResultLauncher
+- {static} int MY_CAMERA_REQUEST_CODE
+- {static} int FROM_GALLERY
+- {static} int FROM_CAMERA
+~ byte[] bytes
+~ Uri uri
+~ AlertDialog.Builder adb
+~ AlertDialog ad
+~ FirebaseDatabase firebaseUser
+~ DatabaseReference db
+~ String picName
+~ int flag
+~ SharedPreferences sp
+~ boolean f
+~ StorageReference storageReference
+# void onCreate(Bundle)
+- void fetchProfilePicture(String)
+- String getFileExtension(Uri)
++ void onRequestPermissionsResult(int,String[],int[])
++ void onClick(View)
+- void getUsernameFromFirebase(String)
+- void addPostToFirebase()
+}
+
+
+
+
+com.example.myproject.OnClickListener <|.. com.example.myproject.Makepost
+androidx.appcompat.app.AppCompatActivity <|-- com.example.myproject.Makepost
+@enduml

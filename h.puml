@@ -1,0 +1,42 @@
+@startuml
+class com.example.myproject.HomeFragment {
+- Button b
+- SharedPreferences sp
+- RecyclerView recyclerView
+- List<post> posts
+- PostAdapter adapter
+- DatabaseReference databaseRef
+- StorageReference postImageRef
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void loadPosts()
+- void fetchPostImage(post,String)
+- void fetchProfilePicture(post,String)
++ void onClick(View)
+}
+
+
+class com.example.myproject.HomeFragment$PostAdapter {
+- List<post> posts
++ PostViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(PostViewHolder,int)
+- String formatTimestamp(long)
++ int getItemCount()
+}
+
+
+class com.example.myproject.HomeFragment$PostViewHolder {
+~ ImageView postimage
+~ TextView username
+~ View view
+~ Button b
+}
+
+
+
+com.example.myproject.OnClickListener <|.. com.example.myproject.HomeFragment
+androidx.fragment.app.Fragment <|-- com.example.myproject.HomeFragment
+com.example.myproject.HomeFragment +.. com.example.myproject.HomeFragment$PostAdapter
+com.example.myproject.Adapter <|-- com.example.myproject.HomeFragment$PostAdapter
+com.example.myproject.HomeFragment +.. com.example.myproject.HomeFragment$PostViewHolder
+com.example.myproject.ViewHolder <|-- com.example.myproject.HomeFragment$PostViewHolder
+@enduml

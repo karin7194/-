@@ -1,0 +1,41 @@
+@startuml
+class com.example.myproject.SearchFragment {
+- RecyclerView recyclerView
+- List<User> users
+- UserAdapter adapter
+- DatabaseReference usersRef
+- SearchView searchView
+- SharedPreferences sp
+- StorageReference profilePictureRef
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void loadUsers()
++ boolean onQueryTextChange(String)
++ boolean onQueryTextSubmit(String)
+- void filter(String)
+- void fetchProfilePicture(User,String)
+}
+
+
+class com.example.myproject.SearchFragment$UserAdapter {
+- List<User> users
++ UserViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(UserViewHolder,int)
++ int getItemCount()
++ void setData(List<User>)
+}
+
+
+class com.example.myproject.SearchFragment$UserViewHolder {
+~ TextView usernameTextView
+~ ImageView profilePicImageView
+}
+
+
+
+com.example.myproject.OnQueryTextListener <|.. com.example.myproject.SearchFragment
+androidx.fragment.app.Fragment <|-- com.example.myproject.SearchFragment
+com.example.myproject.SearchFragment +.. com.example.myproject.SearchFragment$UserAdapter
+com.example.myproject.Adapter <|-- com.example.myproject.SearchFragment$UserAdapter
+com.example.myproject.SearchFragment +.. com.example.myproject.SearchFragment$UserViewHolder
+com.example.myproject.ViewHolder <|-- com.example.myproject.SearchFragment$UserViewHolder
+@enduml

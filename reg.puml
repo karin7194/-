@@ -1,0 +1,42 @@
+@startuml
+class com.example.myproject.Registration {
+~ Button b
+~ EditText et1
+~ CheckBox box
+~ FirebaseAuth firebaseAuth
+~ FirebaseDatabase firebaseDatabase
+~ DatabaseReference myref
+~ ActivityResultLauncher activityResultLauncher
+- {static} int MY_CAMERA_REQUEST_CODE
+- {static} int FROM_GALLERY
+- {static} int FROM_CAMERA
+~ byte[] bytes
+~ AlertDialog.Builder adb
+~ AlertDialog ad
+~ ImageView profileImage
+~ Uri uri
+~ StorageReference mStorageRef
+~ int flag
+~ String picName
+~ int j
+~ boolean f
+~ SharedPreferences sp
+~ BroadcastReceiver broadcastReceiver
+# void onCreate(Bundle)
++ void registerNetworkBroadcastReceiver()
++ void unregisterNetwork()
++ void onDestroy()
++ void insertimage()
+- String getFileExtension(Uri)
++ void onRequestPermissionsResult(int,String[],int[])
++ void insert()
++ boolean isValidate()
++ void onClick(View)
+}
+
+
+
+
+com.example.myproject.OnClickListener <|.. com.example.myproject.Registration
+androidx.appcompat.app.AppCompatActivity <|-- com.example.myproject.Registration
+@enduml
